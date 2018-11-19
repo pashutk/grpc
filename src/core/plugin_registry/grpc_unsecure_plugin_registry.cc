@@ -36,6 +36,8 @@ void grpc_resolver_dns_native_init(void);
 void grpc_resolver_dns_native_shutdown(void);
 void grpc_resolver_sockaddr_init(void);
 void grpc_resolver_sockaddr_shutdown(void);
+void grpc_resolver_joom_init(void);
+void grpc_resolver_joom_shutdown(void);
 void grpc_resolver_fake_init(void);
 void grpc_resolver_fake_shutdown(void);
 void grpc_lb_policy_grpclb_init(void);
@@ -70,6 +72,8 @@ void grpc_register_built_in_plugins(void) {
                        grpc_resolver_dns_native_shutdown);
   grpc_register_plugin(grpc_resolver_sockaddr_init,
                        grpc_resolver_sockaddr_shutdown);
+  grpc_register_plugin(grpc_resolver_joom_init,
+                       grpc_resolver_joom_shutdown);
   grpc_register_plugin(grpc_resolver_fake_init,
                        grpc_resolver_fake_shutdown);
   grpc_register_plugin(grpc_lb_policy_grpclb_init,

@@ -999,6 +999,7 @@ grpc_cc_library(
         "grpc_resolver_dns_ares",
         "grpc_resolver_fake",
         "grpc_resolver_dns_native",
+        "grpc_resolver_joom",
         "grpc_resolver_sockaddr",
         "grpc_transport_chttp2_client_insecure",
         "grpc_transport_chttp2_server_insecure",
@@ -1463,6 +1464,18 @@ grpc_cc_library(
     name = "grpc_resolver_sockaddr",
     srcs = [
         "src/core/ext/filters/client_channel/resolver/sockaddr/sockaddr_resolver.cc",
+    ],
+    language = "c++",
+    deps = [
+        "grpc_base",
+        "grpc_client_channel",
+    ],
+)
+
+grpc_cc_library(
+    name = "grpc_resolver_joom",
+    srcs = [
+        "src/core/ext/filters/client_channel/resolver/joom/joom_resolver.cc",
     ],
     language = "c++",
     deps = [
